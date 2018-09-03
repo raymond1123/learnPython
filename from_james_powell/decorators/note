@@ -1,0 +1,32 @@
+python -i dec.py 
+>>> add
+<function add at 0x7ffaf2f14f28>
+>>> add.__name__
+'add'
+>>> add.__module__
+'__main__'
+>>> add.__defaults__
+(10,)
+>>> add.__code__
+<code object add at 0x7ffaf2ee09c0, file "dec.py", line 3>
+>>> add.__code__.co_code
+b'|\x00\x00|\x01\x00\x17S'
+>>> add.__code__.co_nlocals
+2
+>>> add.__code__.co_
+add.__code__.co_argcount        add.__code__.co_consts          add.__code__.co_flags           add.__code__.co_lnotab          add.__code__.co_nlocals         
+add.__code__.co_cellvars        add.__code__.co_filename        add.__code__.co_freevars        add.__code__.co_name            add.__code__.co_stacksize       
+add.__code__.co_code            add.__code__.co_firstlineno     add.__code__.co_kwonlyargcount  add.__code__.co_names           add.__code__.co_varnames        
+>>> add.__code__.co_varnames
+('x', 'y')
+>>> from inspect import getsource
+>>> getsource(add)
+'def add(x,y=10):\n\treturn x + y\n'
+>>> print(getsource(add))
+def add(x,y=10):
+	return x + y
+
+>>> from inspect import getfile
+>>> getfile(add)
+'dec.py'
+
